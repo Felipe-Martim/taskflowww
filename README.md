@@ -97,7 +97,7 @@ Exemplo de requisição para cadastrar uma tarefa:
 ### 1. Clonar o repositório
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/Felipe-Martim/taskflowww.git
 cd taskflowww
 ```
 
