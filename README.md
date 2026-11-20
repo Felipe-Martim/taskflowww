@@ -127,13 +127,25 @@ Também configure as variáveis `DB_PASSWORD` e `JWT_SECRET` no ambiente de exec
 
 ### 3. Iniciar o banco com Docker
 
+Inicie o container do PostgreSQL:
+
 ```bash
 docker compose up -d
 ```
 
-O PostgreSQL ficará disponível na porta `5433` do computador, conforme o `compose.yaml`.
+O banco de dados será disponibilizado na porta `5433` do computador, conforme definido no arquivo `compose.yaml`.
 
-**Atenção:** a configuração atual do `application.properties` utiliza a porta `5432`. Caso utilize o PostgreSQL iniciado pelo Docker Compose deste projeto, ajuste a URL para `jdbc:postgresql://localhost:5433/taskflow`.
+**Importante:** para utilizar o banco iniciado pelo Docker Compose deste projeto, configure a URL do banco em `src/main/resources/application.properties`:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5433/taskflow
+```
+
+Se estiver utilizando outro PostgreSQL já instalado na máquina e disponível na porta `5432`, mantenha a URL correspondente:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/taskflow
+```
 
 ### 4. Executar a aplicação
 
